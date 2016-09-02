@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="jquery-1.12.4.js"></script>
+<script src="myapp.js"></script>
+<script src="popular-movie-list.js"></script>
+<script src="jquerySty.js"></script>
+
+<link rel="stylesheet" type="text/css" href="animate.css" />
+<script src="viewportchecker.js"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="myapp.css">
+<style type "text/css">
+
+<!--
+/* @group Blink */
+.blink {
+	-webkit-animation: blink .75s linear infinite;
+	-moz-animation: blink .75s linear infinite;
+	-ms-animation: blink .75s linear infinite;
+	-o-animation: blink .75s linear infinite;
+	 animation: blink .75s linear infinite;
+}
+@-webkit-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-o-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+/* @end */
+-->
+</style>
+
+<body ng-app="myApp"  ng-controller="RootController">
+
+<div class="cont">
+<div id="icon">
+<table>
+<tr>
+<td>
+ <img src="images/movies_folder_icon_2_by_gterritory-d8zhhqe.png"  alt="icon" 
+ style="width:140px ;height:140px;margin-left:150px;" />
+</td>
+<td>
+<h1 class="tab blink"><b>MOVIES<b></h1>
+<h5><b>The most Played Movies<b></h5> 
+</td>   
+</tr>
+</table>
+</div>
+<div class="div1">
+<div id="tab">
+ <ul  class="menus">
+    <li id="pop"><a class="a" href="Home.html">Home</a></li><!--
+    --><li id="tred"><a class="a" href="Home.html">popular</a></li><!--
+    --><li id="anti"><a class="a" href="Home.html">Anticipated</a></li><!--
+    --><li id="play"><a class="a" href="Home.html">Played</a></li>
+    
+</ul>
+
+</div>
+<div id="movieInfor">
+<h1><b>Movies</b></h1>
+<p>The great thing about movies, you always know what will happen
+And it's one reason why I don't go to a lot of movies -
+they're more and more dominated by corporate values
+and fiscal concerns as opposed to cinematic concerns.
+</P>
+<p>The great thing about movies is that they're collaborative.
+And the worst thing is that they're collaborative.</p>
+
+<p>I think I was afraid of what I might say when I got
+onto someone's stage or in front of someone's camera.</P>
+
+
+<p>I like New York because you're kind of forced to smell everybody else's funk.
+So it keeps you biologically attached to the world around you.</p>
+</div>
+
+</div>
+<img class="mySlides" src="images/stranger.jpg" style="width:100% ;height:500px;">
+<img class="mySlides" src="images/arrow.jpg" style="width:100% ;
+   height:500px;">
+<img class="mySlides" src="images/robort.jpg" style="width:100% ;
+   height:500px;">
+<img class="mySlides" src="images/the strain.jpg" style="width:100% ;
+   height:500px;">
+<img class="mySlides" src="images/liers.jpg" style="width:100% ;height:500px;">
+<img class="mySlides" src="images/xm.jpg" style="width:100% ;
+   height:500px;">
+   <img class="mySlides" src="images/The-Originals-2.jpg" style="width:100% ;
+   height:500px;">
+   <img class="mySlides" src="images/back3.jpg" style="width:100% ;
+   height:500px;">
+
+
+<div id="movieInfor2">
+<input id="txtSearch" style="border-radius:50px; " type="text" height="150px" ng-model="txt" placeholder="Search by title..."/>
+ <button style="background-color:#006666;color:#ffffff" type="button">Search</button> 
+</div>
+<div id="pic" ng-int="movieList" >
+
+ <div id="picimg" ng-repeat="movie in movieList |filter:txt">
+  <img  id="Movies" ng-src="http://image.tmdb.org/t/p/w370/{{movie.poster_path}}"/>
+  <h5>{{movie.title}}</h5>
+  <h6>Year: {{movie.release_date}}</h6>
+ </div>
+</div>
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); 
+}
+</script>
+
+
+
+
+</body>
+</html>
